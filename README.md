@@ -6,7 +6,7 @@ As code writers we have learned that there are patterns to solve common problems
 
 Regardless of what patterns we choose, the idea is pretty simple: many problems have similar solutions and some solutions have been proven better than others. Actually, common algorithms as _BFS_ for graphs and trees, _binary search_ for ordered collections and so on are also patterns, although they are probably less glamorous as buzzwords.
 
-There is another bag of patterns: Maths. Particularly, that area of Maths that some people consider the Math of Maths: Category Theory. But before we continue, let’s talk a bit more about patterns in general.
+There is another bag of patterns: Maths. Particularly, that area of Maths that some people consider the _Math of Maths_: _Category Theory_. But before we continue, let’s talk a bit more about patterns in general.
 
 Patterns are context dependent, that is, some of them are pretty clever and useful in one language or problem domain while trivial or irrelevant in others, for example, the _Command_ pattern from the famous Design Patterns book only makes sense if you are in a language were anonymous functions don’t exist, using a specialized object to represent a closure in Scala, Haskell or JS is not even pedantic, it’s silly.
 
@@ -19,6 +19,8 @@ Category theory patterns are like any other bag of patterns, some of them cannot
 This text attempts to provide a short overview of examples of categories and categorical patterns hoping that having this bag at hand could be useful.
 
 ## Sets and Function Like Arrows
+
+_Refs: [Set](https://en.wikipedia.org/wiki/Set_(mathematics))_
 
 _Set-like_ examples are very similar, objects are pretty much the _Types_ in a programming language and arrows from `A` to `B` are a _process_ that produces values of type `B` when given values of type `A`.
 
@@ -60,6 +62,8 @@ _Set-like_ examples are very similar, objects are pretty much the _Types_ in a p
 
 ### Kleisli Categories (over a monad M)
 
+_Refs: [Kliesly Category](https://ncatlab.org/nlab/show/Kleisli+category)_
+
 * Objects: Types
 * Arrows: Kleisli Arrows (`a -> M b`)
 * Composition: Monadic composition (`>>=`, `flatMap` or `bind`)
@@ -71,6 +75,7 @@ _Set-like_ examples are very similar, objects are pretty much the _Types_ in a p
 * Coproduct: Same as in Types.
 
 ### General Programs (profunctors)
+
 * Objects: Types
 * Arrows: Programs that consume values of type `A` and generate values of type `B` with possible side effects. It is important to note that programs may not need to actually produce any `B` at all or that they may produce many regardless of how many or when they are given the values of type `A`.
 * Composition: _Piping_ the results of a program as inputs of another program
@@ -80,6 +85,10 @@ _Set-like_ examples are very similar, objects are pretty much the _Types_ in a p
 * Functor Hom(_, B): No explicit notation
 
 ## Orders and Lattices
+
+_Refs:
+[Poset](https://en.wikipedia.org/wiki/Partially_ordered_set);
+[Lattice](https://en.wikipedia.org/wiki/Lattice_(order))_
 
 Most of these examples are similar, their main characteristic is that arrows represent some kind of dependency between objects and such dependency is unique. That is, between two objects `A` and `B`, if there is an arrow, there is only one.
 
